@@ -92,7 +92,6 @@ for match in sched.iterrows():
     sched.loc[match[0], 'redRP'] = redRP
     sched.loc[match[0], 'blueRP'] = blueRP
 
-
     # Store RP
     ranking.loc[match[1]['Red1'], 'RP'] += redRP
     ranking.loc[match[1]['Red2'], 'RP'] += redRP
@@ -102,9 +101,7 @@ for match in sched.iterrows():
     ranking.loc[match[1]['Blue2'], 'RP'] += blueRP
     ranking.loc[match[1]['Blue3'], 'RP'] += blueRP
 
+# Save results for later inspection
 ranking.sort_values('RP', ascending=False, inplace=True)
 ranking.to_csv('outputs/q1_result_rankings.csv')
-
 sched.to_csv('outputs/q1_match_results.csv')
-
-print(0)
