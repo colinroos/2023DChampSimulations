@@ -11,7 +11,10 @@ class CompetitionSimulator:
     sim_results = pd.DataFrame()
     num_simulations = 100
 
-    def __init__(self):
+    def __init__(self, num_simulations=100):
+
+        self.num_simulations = num_simulations
+
         self.teamsEPA = loadTeamEPA()
 
         # generate schedules
@@ -111,5 +114,5 @@ class CompetitionSimulator:
 
 
 if __name__ == '__main__':
-    sim = CompetitionSimulator()
+    sim = CompetitionSimulator(1000)
     sim.simulate()
