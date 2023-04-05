@@ -12,9 +12,11 @@ sb = statbotics.Statbotics()
 
 def loadTeamEPA():
     if exists('db/teamsEPA.csv'):
+        print('Loading team database from file.')
         teamsEPA = pd.read_csv('db/teamsEPA.csv', index_col=0)
     else:
         # Load Team list, limit to top 80 (for district champs)
+        print('Fetching new data from the Blue Alliance')
         dTeams = tba.district_rankings('2023ont')[:80]
         teams = []
         for team in dTeams:
